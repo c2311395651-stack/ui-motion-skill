@@ -1,6 +1,6 @@
 # UI/UX 动效交互 Skill
 
-[![version](https://img.shields.io/badge/version-0.2-blue?style=flat-square)](https://github.com/c2311395651-stack/ui-motion-skill/releases) [![license](https://img.shields.io/badge/license-MIT-green?style=flat-square)](https://github.com/c2311395651-stack/ui-motion-skill/blob/main/LICENSE) [![motions](https://img.shields.io/badge/动效库-6_个-orange?style=flat-square)](https://github.com/c2311395651-stack/ui-motion-skill/blob/main/skills/ui-motion/references/motions.md)
+[![version](https://img.shields.io/badge/version-0.3-blue?style=flat-square)](https://github.com/c2311395651-stack/ui-motion-skill/releases) [![license](https://img.shields.io/badge/license-MIT-green?style=flat-square)](https://github.com/c2311395651-stack/ui-motion-skill/blob/main/LICENSE) [![motions](https://img.shields.io/badge/动效库-6_个-orange?style=flat-square)](https://github.com/c2311395651-stack/ui-motion-skill/blob/main/skills/ui-motion/references/motions.md)
 
 给 AI 编码助手（Claude Code、Codex、Cursor 等）用的动效技能包。
 
@@ -14,8 +14,19 @@
 
 ### 安装
 
+**方式一：通用安装（Claude Code、Codex、Cursor 等都支持）**
+
 ```bash
 npx skills add https://github.com/c2311395651-stack/ui-motion-skill
+```
+
+**方式二：Claude Code 插件**
+
+在 Claude Code 里依次输入：
+
+```
+/plugin marketplace add c2311395651-stack/ui-motion-skill
+/plugin install ui-motion@ui-motion
 ```
 
 ### 使用
@@ -94,17 +105,15 @@ AI 写完代码后会按检查清单逐条自检：
 
 ## 更新记录
 
-- **v0.2**（2026-10-07）：第01期 · 4 个按钮动效（点赞爆粒子、提交按钮三连变、果冻开关、长按确认），动效库扩充到 6 个。每个动效补充了"什么时候不用"和完整参数。新增 `foundations.md` 通用规则文档。
+- **v0.3**（2026-10-07）：完善为正式插件。新增 `foundations.md` 通用规则（时长、曲线、性能、无障碍），SKILL.md 增加场景判断表，每个动效补充"什么时候不用"，支持 Claude Code 插件安装。
+- **v0.2**（2026-10-07）：第01期 · 4 个按钮动效（点赞爆粒子、提交按钮三连变、果冻开关、长按确认），动效库扩充到 6 个。
 - **v0.1**（2026-10-06）：首发，收录 2 个弹出交互动效（变形菜单、卡片展开）和一份反廉价自检清单。
 
 ---
 
 ## 对应视频
 
-每期视频的选题、动效演示和提示词对比：
-
-- 第01期：[4个提示词，让AI做出有手感的按钮](#)（发布后补链接）
-- 测试样片：[AI做的界面总差点意思？这2个弹出交互，一句提示词就能做](#)
+每期动效的演示效果在抖音视频里，动效库跟着视频每期更新。
 
 ---
 
