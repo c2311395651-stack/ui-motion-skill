@@ -1,0 +1,25 @@
+<!doctype html>
+<!-- 按提示词 s3 生成的实测网页：果冻开关（v02：拉长和回弹分段设曲线，效果更明显） -->
+<html><head><meta charset="utf-8"><title>Jelly Toggle</title>
+<style>
+body{margin:0;height:100vh;display:flex;align-items:center;justify-content:center;background:#111317}
+.tg{position:relative;width:120px;height:64px;border:0;border-radius:32px;background:#3a3d46;cursor:pointer;transition:background-color .35s}
+.tg[aria-checked=true]{background:#3DD68C}
+.knob{position:absolute;left:6px;top:6px;width:52px;height:52px;border-radius:26px;background:#fff;box-shadow:0 3px 8px rgba(0,0,0,.3)}
+</style></head><body>
+<button class="tg" id="tg" role="switch" aria-checked="false" aria-label="消息推送"><span class="knob"></span></button>
+<script>
+const tg=document.getElementById('tg'),k=tg.querySelector('.knob');
+tg.addEventListener('click',()=>{
+  const on=tg.getAttribute('aria-checked')!=='true';tg.setAttribute('aria-checked',on);
+  // 用 left + width 描述圆点：先朝目标方向拉长成胶囊，再收拢到终点，最后回弹
+  const L=on?[6,6,34,62,62]:[62,38,6,6,6],W=[52,76,80,52,52];
+  k.animate([
+    {left:L[0]+'px',width:W[0]+'px',transform:'scale(1)',easing:'ease-out'},
+    {left:L[1]+'px',width:W[1]+'px',offset:.3,easing:'ease-in-out'},
+    {left:L[2]+'px',width:W[2]+'px',offset:.55,easing:'ease-in'},
+    {left:L[3]+'px',width:W[3]+'px',transform:'scaleX(.9) scaleY(1.08)',offset:.75,easing:'cubic-bezier(.34,1.56,.64,1)'},
+    {left:L[4]+'px',width:W[4]+'px',transform:'scale(1)'}
+  ],{duration:350,fill:'forwards'});
+});
+</script></body></html>

@@ -1,0 +1,13 @@
+{
+  "name": "ui-motion-skill",
+  "version": "0.2.0",
+  "description": "UI/UX 动效交互 —— 给 AI 编码助手用的高级交互动效技能。装上后 AI 会自动按动效库参数实现有细节、有手感的交互，而不是'点一下就硬切'。",
+  "author": "c2311395651-stack",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/c2311395651-stack/ui-motion-skill.git"
+  },
+  "homepage": "https://github.com/c2311395651-stack/ui-motion-skill",
+  "keywords": ["ui", "ux", "motion", "animation", "interaction", "design", "skill"]
+}

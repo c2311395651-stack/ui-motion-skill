@@ -1,0 +1,29 @@
+<!doctype html>
+<!-- 按提示词 s2 生成的实测网页：提交按钮三段变化 -->
+<html><head><meta charset="utf-8"><title>Submit Morph</title>
+<style>
+body{margin:0;height:100vh;display:flex;align-items:center;justify-content:center;background:#111317;font-family:system-ui,sans-serif}
+.submit{position:relative;width:300px;height:68px;border:0;border-radius:34px;background:#4F8CFF;color:#fff;font-size:24px;font-weight:700;cursor:pointer;
+ transition:width .3s ease-in-out,background-color .3s ease-in-out;overflow:hidden}
+.submit .label{transition:opacity .15s}
+.submit.loading,.submit.done{width:68px}
+.submit.loading .label,.submit.done .label{opacity:0}
+.submit.done{background:#3DD68C}
+.spin{position:absolute;left:50%;top:50%;width:30px;height:30px;margin:-15px;border-radius:50%;border:3.5px solid rgba(255,255,255,.3);border-top-color:#fff;opacity:0;animation:r .8s linear infinite}
+.submit.loading .spin{opacity:1;transition:opacity .2s .25s}
+.check{position:absolute;left:50%;top:50%;width:34px;height:34px;margin:-17px}
+.check path{fill:none;stroke:#fff;stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:30;stroke-dashoffset:30}
+.submit.done .check path{transition:stroke-dashoffset .35s .15s ease-out;stroke-dashoffset:0}
+@keyframes r{to{transform:rotate(360deg)}}
+</style></head><body>
+<button class="submit" id="sb"><span class="label">提交预约</span><span class="spin"></span>
+ <svg class="check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+<script>
+const b=document.getElementById('sb');
+b.addEventListener('click',()=>{
+  if(b.classList.contains('loading')||b.classList.contains('done'))return;
+  b.classList.add('loading');b.setAttribute('aria-busy','true');
+  setTimeout(()=>{b.classList.replace('loading','done');b.removeAttribute('aria-busy');},1200);   // 1.2 秒后成功
+  setTimeout(()=>b.classList.remove('done'),2200);                                                  // 再过 1 秒恢复
+});
+</script></body></html>
