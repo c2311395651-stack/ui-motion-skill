@@ -1,6 +1,6 @@
 # UI/UX 动效交互 Skill
 
-[![version](https://img.shields.io/badge/version-0.3-blue?style=flat-square)](https://github.com/c2311395651-stack/ui-motion-skill/releases) [![license](https://img.shields.io/badge/license-MIT-green?style=flat-square)](https://github.com/c2311395651-stack/ui-motion-skill/blob/main/LICENSE) [![motions](https://img.shields.io/badge/动效库-6_个-orange?style=flat-square)](https://github.com/c2311395651-stack/ui-motion-skill/blob/main/skills/ui-motion/references/motions.md)
+[![version](https://img.shields.io/badge/version-0.4-blue?style=flat-square)](https://github.com/c2311395651-stack/ui-motion-skill/releases) [![license](https://img.shields.io/badge/license-MIT-green?style=flat-square)](https://github.com/c2311395651-stack/ui-motion-skill/blob/main/LICENSE) [![motions](https://img.shields.io/badge/动效库-10_个-orange?style=flat-square)](https://github.com/c2311395651-stack/ui-motion-skill/blob/main/skills/ui-motion/references/motions.md)
 
 给 AI 编码助手（Claude Code、Codex、Cursor 等）用的动效技能包。
 
@@ -48,6 +48,7 @@ npx skills add https://github.com/c2311395651-stack/ui-motion-skill
 | 期 | 主题 | 提示词 |
 |---|---|---|
 | 第01期 | 4 个按钮动效：点赞爆粒子、提交按钮三连变、果冻开关、长按确认 | [按钮动效.md](prompts/按钮动效.md) |
+| 第02期 | 4 个手势交互：下拉刷新、左滑删除、卡片左右滑、拖拽排序 | [手势交互.md](prompts/手势交互.md) |
 | 加餐 | 2 个弹出交互：按钮长出菜单、卡片展开详情 | [弹出交互.md](prompts/弹出交互.md) |
 
 ---
@@ -64,6 +65,10 @@ npx skills add https://github.com/c2311395651-stack/ui-motion-skill
 | 04 | 提交按钮三连变 Submit Morph | 提交、支付、保存等待结果 |
 | 05 | 果冻开关 Jelly Toggle | 设置开关、深色模式切换 |
 | 06 | 长按确认 Hold to Confirm | 删除、注销等危险操作 |
+| 07 | 下拉刷新 Pull to Refresh | 信息流、消息列表拉取新内容 |
+| 08 | 左滑删除 Swipe to Delete | 列表单行快捷删除、归档 |
+| 09 | 卡片左右滑 Swipe Cards | 喜欢/跳过二选一 |
+| 10 | 拖拽排序 Drag to Reorder | 待办、歌单等自定义排序 |
 
 每个动效都有：
 - ✅ 什么时候用、怎么实现、完整参数
@@ -105,6 +110,7 @@ AI 写完代码后会按检查清单逐条自检：
 
 ## 更新记录
 
+- **v0.4**（2026-10-08）：第02期 · 4 个手势交互（下拉刷新、左滑删除、卡片左右滑、拖拽排序），动效库扩充到 10 个，新增手势跟手规则。
 - **v0.3**（2026-10-07）：完善为正式插件。新增 `foundations.md` 通用规则（时长、曲线、性能、无障碍），SKILL.md 增加场景判断表，每个动效补充"什么时候不用"，支持 Claude Code 插件安装。
 - **v0.2**（2026-10-07）：第01期 · 4 个按钮动效（点赞爆粒子、提交按钮三连变、果冻开关、长按确认），动效库扩充到 6 个。
 - **v0.1**（2026-10-06）：首发，收录 2 个弹出交互动效（变形菜单、卡片展开）和一份反廉价自检清单。
