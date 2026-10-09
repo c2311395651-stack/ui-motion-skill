@@ -1,6 +1,6 @@
 # UI/UX 动效交互 Skill
 
-[![version](https://img.shields.io/badge/version-0.5-blue?style=flat-square)](https://github.com/c2311395651-stack/ui-motion-skill/releases) [![license](https://img.shields.io/badge/license-MIT-green?style=flat-square)](https://github.com/c2311395651-stack/ui-motion-skill/blob/main/LICENSE) [![motions](https://img.shields.io/badge/动效库-14_个-orange?style=flat-square)](https://github.com/c2311395651-stack/ui-motion-skill/blob/main/skills/ui-motion/references/motions.md)
+[![version](https://img.shields.io/badge/version-0.6-blue?style=flat-square)](https://github.com/c2311395651-stack/ui-motion-skill/releases) [![license](https://img.shields.io/badge/license-MIT-green?style=flat-square)](https://github.com/c2311395651-stack/ui-motion-skill/blob/main/LICENSE) [![motions](https://img.shields.io/badge/动效库-18_个-orange?style=flat-square)](https://github.com/c2311395651-stack/ui-motion-skill/blob/main/skills/ui-motion/references/motions.md)
 
 给 AI 编码助手（Claude Code、Codex、Cursor 等）用的动效技能包。
 
@@ -50,6 +50,7 @@ npx skills add https://github.com/c2311395651-stack/ui-motion-skill
 | 第01期 | 4 个按钮动效：点赞爆粒子、提交按钮三连变、果冻开关、长按确认 | [按钮动效.md](prompts/按钮动效.md) |
 | 第02期 | 4 个手势交互：下拉刷新、左滑删除、卡片左右滑、拖拽排序 | [手势交互.md](prompts/手势交互.md) |
 | 第03期 | 4 个页面切换：底部导航、底部弹窗、吸顶标题、分段标签 | [页面切换.md](prompts/页面切换.md) |
+| 第04期 | 4 个加载动效：骨架屏扫光、模糊到清晰、加载更多、AI 流式回复 | [加载动效.md](prompts/加载动效.md) |
 | 加餐 | 2 个弹出交互：按钮长出菜单、卡片展开详情 | [弹出交互.md](prompts/弹出交互.md) |
 
 ---
@@ -74,6 +75,10 @@ npx skills add https://github.com/c2311395651-stack/ui-motion-skill
 | 12 | 底部弹窗 Bottom Sheet | 选规格、选日期、分享、筛选面板 |
 | 13 | 吸顶大标题 Collapsing Header | 头图 + 大标题的详情页 |
 | 14 | 毛毛虫标签 Segmented Tabs | 关注/发现/附近等分段标签 + 左右滑内容 |
+| 15 | 骨架屏扫光 Skeleton Shimmer | 信息流、列表、详情页首次加载 |
+| 16 | 模糊到清晰 Blur-up Image | 照片墙、商品图等网络图片 |
+| 17 | 加载更多 Infinite Scroll | 分页长列表滑到底 |
+| 18 | AI 流式回复 Streaming Reply | AI 对话边生成边显示 |
 
 每个动效都有：
 - ✅ 什么时候用、怎么实现、完整参数
@@ -115,6 +120,7 @@ AI 写完代码后会按检查清单逐条自检：
 
 ## 更新记录
 
+- **v0.6**（2026-10-09）：第04期 · 4 个加载动效（骨架屏扫光、模糊到清晰、加载更多、AI 流式回复），动效库扩充到 18 个，新增"加载与等待"规则和 4 条反廉价自检。
 - **v0.5**（2026-10-09）：第03期 · 4 个页面切换（水滴导航、底部弹窗、吸顶大标题、毛毛虫标签），动效库扩充到 14 个，新增"页面切换与空间关系"规则和 3 条反廉价自检。
 - **v0.4**（2026-10-08）：第02期 · 4 个手势交互（下拉刷新、左滑删除、卡片左右滑、拖拽排序），动效库扩充到 10 个，新增手势跟手规则。
 - **v0.3**（2026-10-07）：完善为正式插件。新增 `foundations.md` 通用规则（时长、曲线、性能、无障碍），SKILL.md 增加场景判断表，每个动效补充"什么时候不用"，支持 Claude Code 插件安装。
