@@ -180,6 +180,43 @@ function moveTo(i) {
 @keyframes shimmer { from { background-position-x: 100vw; } to { background-position-x: -100vw; } }
 ```
 
+## 表单输入反馈
+
+输入框是用户"在说话"的地方，反馈要像一个耐心的人：等你说完再回应，说错了指给你看，说对了马上点头。
+
+- **校验时机**: 用户还没输完时不报错。停止输入约 400ms（debounce）或离开输入框（blur）后再校验；已经报错的框，一改对就立刻变绿（晚报错、早夸奖）。密码强度这类"引导"可以每个字符实时更新，但不显示红色错误。
+- **就近反馈**: 对勾、错误提示、强度条都紧贴在对应输入框旁边或下方，不要堆在页面顶部，更不要用 alert 弹窗。
+- **三重提示**: 错误要有动作 + 颜色 + 文字（摇头 + 变红 + 一句说清错在哪的话），不能只靠变红。色弱用户分不清红绿，文字也要告诉用户怎么改。
+- **布局不跳**: 标签浮起、对勾出现、错误提示出现都不能改变输入框高度，也不能把下面的表单往下推。提示文字的位置提前预留，或用 FLIP 平滑收放；边框变色用 `box-shadow` / `outline` 加粗，不改 border 宽度。
+- **标签常在**: 用真正的 `<label>`，不要把 placeholder 当标签；输入时标签留在上方，用户随时知道这格在填什么。
+- **键盘和读屏**: 出错的框加 `aria-invalid="true"`，用 `aria-describedby` 关联提示文字；动态变化的提示放在 `aria-live` 区域；评分、验证码这类自定义控件要能用键盘操作。
+- **手机输入**: 用对 `type` / `inputmode` / `autocomplete`（邮箱 `type="email"`、验证码 `inputmode="numeric" autocomplete="one-time-code"`），输入文字至少 16px，避免 iOS 聚焦时自动放大页面。
+- **尊重系统设置**: `prefers-reduced-motion: reduce` 时取消摇头、弹跳和波浪，只保留颜色变化和淡入淡出，信息一个都不能少。
+
+```css
+/* 浮动标签：只动 transform，输入框高度不变 */
+.field label {
+  transform-origin: left center;
+  transition: transform 200ms cubic-bezier(0, 0, .2, 1), color 200ms;
+}
+.field input:focus + label,
+.field input:not(:placeholder-shown) + label {   /* input 写 placeholder=" " 占位 */
+  transform: translateY(-28px) scale(.8);
+}
+
+/* 输错摇头：幅度递减，只用 translateX；减少动效时只变红 */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  15% { transform: translateX(-10px); } 30% { transform: translateX(10px); }
+  45% { transform: translateX(-6px); }  60% { transform: translateX(6px); }
+  75% { transform: translateX(-3px); }  90% { transform: translateX(3px); }
+}
+.field.is-error { animation: shake 400ms cubic-bezier(.36, .07, .19, .97); }
+@media (prefers-reduced-motion: reduce) {
+  .field.is-error { animation: none; }
+}
+```
+
 ## 参数集中管理
 
 把动效参数写成 CSS 变量或 JS 常量,方便用户微调:
